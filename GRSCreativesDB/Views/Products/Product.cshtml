@@ -1,0 +1,28 @@
+﻿@model GRSCreativesDB.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Product";
+}
+
+@if(Model.AliasSKUs != null)
+{
+    <h1>@Model.AliasSKUs.FirstOrDefault().Product.ProductDescription</h1>
+    <br />
+    <table class="table">
+        <thead>
+            <th>
+                SKU
+            </th>
+            <th>
+                IsMain
+            </th>
+            <th>
+                Marketplace
+            </th>
+        </thead>
+    </table>
+}
+else if (Model.Products != null && Model.LocketSet != null)
+{
+   <h1>@Model.LocketSet.ProductDescription</h1>
+}
+

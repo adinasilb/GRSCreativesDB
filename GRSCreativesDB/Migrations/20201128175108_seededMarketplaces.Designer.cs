@@ -3,14 +3,16 @@ using GRSCreativesDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GRSCreativesDB.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20201128175108_seededMarketplaces")]
+    partial class seededMarketplaces
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,16 +86,11 @@ namespace GRSCreativesDB.Migrations
                         new
                         {
                             MarketplaceID = 1,
-                            MarketplaceDescription = "Tell Me A Charm"
-                        },
-                        new
-                        {
-                            MarketplaceID = 2,
                             MarketplaceDescription = "Amazon"
                         },
                         new
                         {
-                            MarketplaceID = 3,
+                            MarketplaceID = 2,
                             MarketplaceDescription = "WalMart"
                         });
                 });

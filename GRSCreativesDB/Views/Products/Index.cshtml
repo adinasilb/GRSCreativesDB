@@ -1,0 +1,54 @@
+﻿@model List<GRSCreativesDB.Models.Product>
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Products</h1>
+
+<table class="table">
+    <thead>
+    <th>
+        Product Description
+    </th>
+    <th>
+        Inventory # (Warehouse)
+    </th>
+    <th>
+        Inventory # (Amazon)
+    </th>
+    <th>
+        Material Type
+    </th>
+    <th>
+        Main SKU
+    </th>
+    <th>
+        Main SKU Marketplace
+    </th>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(product.ProductDescription, "Product", "Products", new { ProductID = product.ProductID})
+                </td>
+                <td>
+                    @product.InventoryNumWarehouse
+                </td>
+                <td>
+                    @product.InventoryNumAmazon
+                </td>
+                <td>
+                    @product.RawMaterial.RawMaterialDescription
+                </td>
+                <td>
+                    @product.AliasSKUs?.FirstOrDefault()?.ChildSKU
+                </td>
+                <td>
+                    @product.AliasSKUs?.FirstOrDefault()?.Marketplace.MarketplaceDescription
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

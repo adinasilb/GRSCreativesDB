@@ -9,7 +9,7 @@ namespace GRSCreativesDB.Data
 {
     public class DBContext : DbContext
     {
-        public DBContext (DbContextOptions<DBContext> options) : base(options)
+        public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
 
         }
@@ -60,6 +60,119 @@ namespace GRSCreativesDB.Data
                 .HasForeignKey(p => p.RawMaterialID)
                 .HasConstraintName("ForeignKey_Product_RawMaterial")
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //SEED DATA:
+            modelBuilder.Entity<RawMaterialType>().HasData(
+                new RawMaterialType()
+                {
+                    RawMaterialTypeID = 1,
+                    RawMaterialDescription = "Raw Material"
+                }, 
+                new RawMaterialType()
+                {
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Finished Good"
+                }
+                );
+
+            modelBuilder.Entity<RawMaterial>().HasData(
+                new RawMaterial()
+                {
+                    RawMaterialID = 100,
+                    RawMaterialTypeID = 1,
+                    RawMaterialDescription = "Locket"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 101,
+                    RawMaterialTypeID = 1,
+                    RawMaterialDescription = "Charm"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 102,
+                    RawMaterialTypeID = 1,
+                    RawMaterialDescription = "Plate"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 103,
+                    RawMaterialTypeID = 1,
+                    RawMaterialDescription = "Chain"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 200,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Locket Set"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 201,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Earrings"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 202,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Necklace"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 203,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Bracelet"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 204,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Charm Set"
+                },
+                new RawMaterial()
+                {
+                    RawMaterialID = 205,
+                    RawMaterialTypeID = 2,
+                    RawMaterialDescription = "Necklace Plus Charm"
+                }
+                );
+
+            modelBuilder.Entity<Marketplace>().HasData(
+                new Marketplace()
+                {
+                    MarketplaceID = 1,
+                    MarketplaceDescription = "Tell Me A Charm"
+                },
+                new Marketplace()
+                {
+                    MarketplaceID = 2,
+                    MarketplaceDescription = "Amazon"
+                },
+                new Marketplace()
+                {
+                    MarketplaceID = 3,
+                    MarketplaceDescription = "WalMart"
+                }
+                );
+
         }
     }
 }

@@ -3,14 +3,16 @@ using GRSCreativesDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GRSCreativesDB.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20201121175427_initalSeed")]
+    partial class initalSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,23 +81,6 @@ namespace GRSCreativesDB.Migrations
                     b.HasKey("MarketplaceID");
 
                     b.ToTable("Marketplaces");
-
-                    b.HasData(
-                        new
-                        {
-                            MarketplaceID = 1,
-                            MarketplaceDescription = "Tell Me A Charm"
-                        },
-                        new
-                        {
-                            MarketplaceID = 2,
-                            MarketplaceDescription = "Amazon"
-                        },
-                        new
-                        {
-                            MarketplaceID = 3,
-                            MarketplaceDescription = "WalMart"
-                        });
                 });
 
             modelBuilder.Entity("GRSCreativesDB.Models.Product", b =>
@@ -154,88 +139,6 @@ namespace GRSCreativesDB.Migrations
                     b.HasIndex("RawMaterialTypeID");
 
                     b.ToTable("RawMaterials");
-
-                    b.HasData(
-                        new
-                        {
-                            RawMaterialID = 100,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Locket",
-                            RawMaterialTypeID = 1
-                        },
-                        new
-                        {
-                            RawMaterialID = 101,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Charm",
-                            RawMaterialTypeID = 1
-                        },
-                        new
-                        {
-                            RawMaterialID = 102,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Plate",
-                            RawMaterialTypeID = 1
-                        },
-                        new
-                        {
-                            RawMaterialID = 103,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Chain",
-                            RawMaterialTypeID = 1
-                        },
-                        new
-                        {
-                            RawMaterialID = 200,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Locket Set",
-                            RawMaterialTypeID = 2
-                        },
-                        new
-                        {
-                            RawMaterialID = 201,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Earrings",
-                            RawMaterialTypeID = 2
-                        },
-                        new
-                        {
-                            RawMaterialID = 202,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Necklace",
-                            RawMaterialTypeID = 2
-                        },
-                        new
-                        {
-                            RawMaterialID = 203,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Bracelet",
-                            RawMaterialTypeID = 2
-                        },
-                        new
-                        {
-                            RawMaterialID = 204,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Charm Set",
-                            RawMaterialTypeID = 2
-                        },
-                        new
-                        {
-                            RawMaterialID = 205,
-                            JewelryComponent = false,
-                            LocketSet = false,
-                            RawMaterialDescription = "Necklace Plus Charm",
-                            RawMaterialTypeID = 2
-                        });
                 });
 
             modelBuilder.Entity("GRSCreativesDB.Models.RawMaterialType", b =>

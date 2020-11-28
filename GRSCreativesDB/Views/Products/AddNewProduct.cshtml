@@ -1,0 +1,44 @@
+﻿@model NewProductViewModel;
+@using GRSCreativesDB.ViewModels; 
+@{
+    ViewData["Title"] = "AddNewProduct";
+}
+
+<h1>Add New Product</h1>
+
+<form action="" method="post">
+    <div class="row">
+        <div class="col-4">
+            <label>Product Name: </label>
+            <input class="form-control-plaintext border-bottom" asp-for="AliasSKU.Product.ProductDescription" />
+            <br />
+            <label>Inventory #: (Warehouse)</label>
+            <input class="form-control-plaintext border-bottom" asp-for="AliasSKU.Product.InventoryNumWarehouse" />
+            <br />
+            <label>Inventory #: (Amazon)</label>
+            <input class="form-control-plaintext border-bottom" asp-for="AliasSKU.Product.InventoryNumAmazon" />
+            <br />
+            <label>Type</label>
+            <select class="form-control-plaintext border-bottom" asp-for="AliasSKU.Product.RawMaterialID" placeholder="Select Raw Material">
+                @foreach(var rawmaterial in Model.RawMaterials)
+                {
+                    <option value="@rawmaterial.RawMaterialID">@rawmaterial.RawMaterialDescription</option>
+                }
+            </select>
+            <br />
+            <label>Main SKU</label>
+            <input class="form-control-plaintext border-bottom" asp-for="AliasSKU.ChildSKU" />
+            <br />
+            <label>Marketplace</label>
+            <select class="form-control-plaintext border-bottom" asp-for="AliasSKU.MarketplaceID" placeholder="Select Marketplace">
+                @foreach(var marketplace in Model.Marketplaces)
+                {
+                    <option value="@marketplace.MarketplaceID">@marketplace.MarketplaceDescription</option>
+                }
+            </select>
+
+            <input type="submit" asp-action="AddNewProduct" value="Save" />
+        </div>
+    </div>
+
+</form>
